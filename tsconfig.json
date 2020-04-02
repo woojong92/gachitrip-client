@@ -31,6 +31,9 @@
     "include": [
         "next-env.d.ts",
         "**/*.ts",
-        "**/*.tsx"
+        "**/*.tsx",
+        "lib/apollo.js",
+        "apollo/client.js",
+        "lib/apollo.js"
     ]
 }

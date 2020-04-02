@@ -6,3 +6,5 @@ yarn add babel-plugin-module-resolver --dev
 yarn add tslint tslint-config-airbnb --dev
 yarn add tslint-react-hooks --dev
 yarn add prettier --dev
+
+yarn add next-apollo graphql apollo-boost @apollo/react-hooks @apollo/react-ssr

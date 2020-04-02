@@ -1,5 +1,6 @@
 import Link from "next/link";
 import * as React from "react";
+import { withApollo } from '../lib/apollo'
 
 function Home() {
     return (
@@ -18,4 +19,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default withApollo({ ssr: true })(Home);
