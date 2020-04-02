@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": "./src",
         "paths": {
             "@components/*": [
-                "./components/*"
+                "src/pages/components/*"
             ]
         },
         "outDir": "dist",
@@ -34,6 +34,8 @@
         "**/*.tsx",
         "lib/apollo.js",
         "apollo/client.js",
-        "lib/apollo.js"
+        "lib/apollo.js",
+        "src/pages/_app.js",
+        "next.config.js"
     ]
 }

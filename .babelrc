@@ -1,12 +1,21 @@
 {
-    "presets": [["next/babel"]],
+    "presets": [
+        [
+            "next/babel"
+        ]
+    ],
     "plugins": [
+        [
+            "emotion"
+        ],
         [
             "module-resolver",
             {
-                "root": ["./"],
+                "root": [
+                    "./src"
+                ],
                 "alias": {
-                    "@components": "./components"
+                    "@components": "./src/components"
                 }
             }
         ]

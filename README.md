@@ -8,3 +8,8 @@ yarn add tslint-react-hooks --dev
 yarn add prettier --dev
 
 yarn add next-apollo graphql apollo-boost @apollo/react-hooks @apollo/react-ssr
+
+yarn add @emotion/core
+yarn add @emotion/styled
+
+npx -p @storybook/cli sb init
