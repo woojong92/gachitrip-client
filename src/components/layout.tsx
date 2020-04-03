@@ -4,7 +4,9 @@ import Header from './header'
 function Layout({ children }) {
     return (
         <>
-            <Head><title>GachiTrip</title></Head>
+            <Head>
+                <title>GachiTrip</title>
+            </Head>
             <Header />
 
 
