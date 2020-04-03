@@ -1,40 +1,33 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
+import styled from "@emotion/styled";
 import Link from 'next/link';
 
+const Header = styled.header`
+    border-bottom: 1px solid rgba(0.0,0,0.75);
+    box-shadow: 0 0 5px rgba(0,0,0,0.75);
+    background: #fff;
+`
 
-function Header() {
+
+export default function Container() {
     return (
-        <header
-            css={{
-                borderBottom: "1px solid rgba(0.0,0,0.75)",
-                boxShadow: "0 0 5px rgba(0,0,0,0.75)",
-                background: "#fff"
-            }}
-        >
+        <Header>
             <div
                 className="inner"
                 css={{
                     height: "50px",
-                    backgroundColor: "skyblue",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center"
+                    justifyContent: "space-between",
+                    paddingRight: "20px",
+                    paddingLeft: "20px"
                 }}
             >
-                <div>logo</div>
-                <div>search</div>
-                <ul css={{
-                    display: "flex",
-                    flexDirection: "row",
-
-                }}>
-                    <li>로그인</li>
-                    <li>회원가입</li>
-                </ul>
+                <div className="left-group">left</div>
+                <div className="center-group">center</div>
+                <div className="rigth-group">right</div>
             </div>
-        </header>
+        </Header>
     )
 }
-
-export default Header
