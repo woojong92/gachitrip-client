@@ -31,9 +31,10 @@ const HeaderLeft = styled.div`
 `;
 
 const HeaderRight = styled.div`
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     text-align: center;
+    padding-right: 20px;
 `;
 
 const HeaderTitle = styled.div`
@@ -63,7 +64,6 @@ const LinkStyle = styled.a`
 `;
 
 const ButtonContainer = styled.div`
-    width: 100px;
     margin-right: 20px;
 `;
 
@@ -82,13 +82,9 @@ export default function Container() {
                 </HeaderLeft>
 
                 <HeaderRight>
-
-                    <ButtonContainer>
-                        <Button text="로그인" />
-                    </ButtonContainer>
-                    <ButtonContainer>
-                        <Button text="회원가입" />
-                    </ButtonContainer>
+                    <Button theme="primary">회원등록하기</Button>
+                    <div style={{ width: "10px" }} />
+                    <Button theme="secondary">로그인하기</Button>
                 </HeaderRight>
 
             </HeaderWrapper>
