@@ -1,36 +1,35 @@
 import Head from 'next/head'
 import Header from './header'
+import Footer from './Footer'
+import SideMenu from "./SideMenu";
 
-function Layout({ children }) {
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import Link from 'next/link';
+
+import { ThemeProvider } from 'emotion-theming'
+
+
+export default function Layout({ children }) {
     return (
         <>
             <Head>
                 <title>GachiTrip</title>
             </Head>
+
             <Header />
 
-
-            <main>
-                <div className="container">{children}</div>
+            <main className="main" css={{
+                display: "flex",
+                flexDirection: "row",
+                backgroundColor: "#fff",
+                height: "100%",
+                paddingLeft: "150px",
+                paddingRight: "150px"
+            }}>
+                {children}
             </main>
-
-            <style jsx>{`
-                header {
-                    border-bottom: 1px solid rgba(0.0,0,0.75);    
-                    box-shadow: 0 0 5px rgba(0,0,0,0.75);
-                    background: #fff;
-                }
-                header .inner {
-                    height: 78px;
-                }
-
-                .container {
-                max-width: 42rem;
-                margin: 1.5rem auto;
-                }
-            `}</style>
+            <Footer />
         </>
     )
 }
-
-export default Layout

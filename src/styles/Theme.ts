@@ -1,3 +1,5 @@
+import styled, { CreateStyled } from "@emotion/styled";
+
 const BOX_BORDER = "1px solid #e6e6e6";
 const BORDER_RADIUS = "4px";
 
@@ -11,7 +13,7 @@ export default {
     blueColor: "#3897f0",
     darkBlueColor: "#003569",
     boxBorder: "1px solid #e6e6e6",
-    borderRadius: "4px",
+    borderRadius: "15px",
     whiteBox: `border:${BOX_BORDER};
              border-radius:${BORDER_RADIUS};
              background-color:white;
