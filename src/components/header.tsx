@@ -4,19 +4,22 @@ import styled from "@emotion/styled";
 
 import Link from 'next/link';
 import Button from "./Button";
-import { red } from "color-name";
+
+import Router from 'next/router';
 
 const Header = styled.header`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom: 1px solid #000080;
-
-    background: #fff;
-    padding-right: 150px;
-    padding-left: 150px;
+    margin-bottom: auto;
 `
 
 const HeaderWrapper = styled.div`
+    width: 100%;
     height: 50px;
     display: flex;
+    flex: auto;
     align-items: center;
     justify-content: space-between;
 `;
@@ -55,6 +58,8 @@ const HeaderNav = styled.ul`
 const HeaderNavItem = styled.li`
     margin-right: 10px;
     margin-left: 10px;
+    box-sizing: border-box;
+    white-space: nowrap;
 `;
 
 const LinkStyle = styled.a`
@@ -68,6 +73,9 @@ const ButtonContainer = styled.div`
 `;
 
 export default function Container() {
+
+    const onClick = (path: string) => { Router.push(path) };
+
     return (
         <Header>
             <HeaderWrapper>
@@ -82,11 +90,10 @@ export default function Container() {
                 </HeaderLeft>
 
                 <HeaderRight>
-                    <Button theme="primary">회원등록하기</Button>
+                    <Button theme="primary" onClick={() => onClick("/SignUp")}>회원등록하기</Button>
                     <div style={{ width: "10px" }} />
-                    <Button theme="secondary">로그인하기</Button>
+                    <Button theme="secondary" onClick={() => onClick("/SignIn")}>로그인하기</Button>
                 </HeaderRight>
-
             </HeaderWrapper>
         </Header>
     )

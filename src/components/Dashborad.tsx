@@ -34,6 +34,7 @@ export default function Container() {
                             marginBottom: "15px",
                         }} />
                 </DashBoardItem>
+
                 <div css={{ display: "flex", flexDirection: "row", justifyContent: "between-space" }}>
                     <div className="contentSession" css={{ marginBottom: "15px", width: "50%", marginRight: "10px" }}>
                         <div css={{
@@ -43,20 +44,34 @@ export default function Container() {
 
                         <div css={{
                             borderRadius: "15px",
-                            height: "250px",
-                            border: "1px solid #e5e5e5"
+                            height: "270px",
+                            border: "1px solid #e5e5e5",
+                            padding: "10px",
                         }}>
-                            <ul>
-                                <li css={{ display: "flex", flexDirection: "row" }}><div>#자유게시판  </div><div>11111111111</div></li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                                <li>6</li>
-                                <li>7</li>
-                                <li>8</li>
-                                <li>9</li>
-                                <li>10</li>
+                            <ul css={{
+                                width: "300px",
+                                height: "100%",
+                            }}>
+                                <li css={{
+                                    width: "300px",
+                                    display: "inline-flex",
+                                    boxSizing: "border-box",
+                                    maxWidth: "100%"
+                                }}>
+                                    <div css={{
+                                        display: "inline-flex",
+                                        boxSizing: "border-box",
+                                        backgroundColor: "white",
+                                        whiteSpace: "nowrap",
+                                        marginRight: "10px"
+                                    }}> 국내여행 </div>
+                                    <div css={{
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap"
+                                    }}> 코로나 때문에 어디 나가질.sdfasfdsfdassdfasdfasdfdfasdfsdfsfㅁㄴ</div>
+                                </li>
+
                             </ul>
                         </div>
                     </div>

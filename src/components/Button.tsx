@@ -19,30 +19,31 @@ import { jsx, css } from '@emotion/core';
 
 
 export type ButtonProps = {
-    /** 버튼 안의 내용 */
-    children: React.ReactNode;
-    /** 버튼의 생김새를 설정 */
-    theme: "primary" | "secondary" | "tertiary";
-    /** 버튼의 크기 */
-    size: "small" | "medium" | "big";
-    /**  버튼의 길이 */
-    width?: string | number;
-    /** 클릭했을 때 호출할 함수 */
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  /** 버튼 안의 내용 */
+  children: React.ReactNode;
+  /** 버튼의 생김새를 설정 */
+  theme: "primary" | "secondary" | "tertiary";
+  /** 버튼의 크기 */
+  size: "small" | "medium" | "big";
+  /**  버튼의 길이 */
+  width?: string | number;
+  /** 클릭했을 때 호출할 함수 */
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 function Button({ children, theme, size, width, onClick }: ButtonProps) {
-    return (
-        <button css={[style, themes[theme], sizes[size], { width }]} onClick={onClick}>
-            {children}
-        </button>
-    )
+  return (
+    <button css={[style, themes[theme], sizes[size], { width }]} onClick={onClick}>
+      {children}
+    </button>
+  )
 };
 
 const style = css`
   outline: none;
   border: none;
   box-sizing: border-box;
+  white-space: nowrap;
   height: 2rem;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
@@ -65,7 +66,7 @@ const style = css`
 `;
 
 const themes = {
-    primary: css`
+  primary: css`
         background-color: #000080;
         color: #fff;
         &:hover {
@@ -75,7 +76,7 @@ const themes = {
             background-color: #000066;
         }
     `,
-    secondary: css`
+  secondary: css`
         background-color: #fff;
         color: #000080;
         border: 1.5px solid #000080;
@@ -88,23 +89,23 @@ const themes = {
             border: 1.5px solid #000066
         }
     `,
-    tertiary: css`
+  tertiary: css`
 
     `
 };
 
 const sizes = {
-    small: css`
+  small: css`
     height: 1.75rem;
     font-size: 0.75rem;
     padding: 0 0.875rem;
   `,
-    medium: css`
+  medium: css`
     height: 2.0rem;
     font-size: 1rem;
     padding: 0 1rem;
   `,
-    big: css`
+  big: css`
     height: 3rem;
     font-size: 1.125rem;
     padding: 0 1.5rem;
@@ -113,9 +114,8 @@ const sizes = {
 
 
 Button.defaultProps = {
-    theme: "primary",
-    size: "medium",
-    onClick: () => console.log("click")
+  theme: "primary",
+  size: "medium",
 }
 
 export default Button;
