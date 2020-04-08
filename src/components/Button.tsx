@@ -47,16 +47,16 @@ const style = css`
   height: 2rem;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
-  background: #000080;
+  background: #5dade2;
   border-radius: 0.25rem;
   line-height: 1;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  &:focus {
+  /* &:focus {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  }
+  } */
   /* &:hover {
     background: #1a1a8d;
   }
@@ -67,26 +67,26 @@ const style = css`
 
 const themes = {
   primary: css`
-        background-color: #000080;
+        background-color: #5dade2;
         color: #fff;
         &:hover {
-            background-color: #8080c0;
+            background-color: #9acced;
         }
         &:active {
-            background-color: #000066;
+            background-color: #3498db;
         }
     `,
   secondary: css`
         background-color: #fff;
-        color: #000080;
-        border: 1.5px solid #000080;
+        color: #5dade2;
+        border: 1.5px solid #5dade2;
         &:hover {
-            color: #8080c0;
-            border: 1.5px solid #8080c0;
+            color: #9acced;
+            border: 1.5px solid #9acced;
         }
         &:active {
-            color: #000066;
-            border: 1.5px solid #000066
+            color: #3498db;
+            border: 1.5px solid #3498db
         }
     `,
   tertiary: css`

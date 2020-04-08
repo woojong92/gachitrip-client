@@ -7,21 +7,23 @@ import { css } from '@emotion/core'
 import SideMenu from "../../components/SideMenu";
 import Dashboard from "../../components/Dashborad";
 import styled from "@emotion/styled";
+import HomeContainer from "./HomeContainer";
 
 const HomeWrapper = styled.div`
     display: flex;
     flex-direction: row;
 `;
+export default HomeContainer;
+// function Home() {
+//     return (
+//         <Layout>
+//             <HomeContainer />
+//         </Layout>
+//     )
+// }
 
-function Home() {
-    return (
-        <Layout>
-            <HomeWrapper>
-                <Dashboard />
-                <SideMenu />
-            </HomeWrapper>
-        </Layout>
-    )
-}
-
-export default withApollo({ ssr: true })(Home);
+// <HomeWrapper>
+// <Dashboard />
+// <SideMenu />
+// </HomeWrapper>
+// export default withApollo({ ssr: true })(Home);

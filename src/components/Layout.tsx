@@ -10,31 +10,32 @@ import Link from 'next/link';
 
 import { ThemeProvider } from 'emotion-theming'
 
-const Container = styled.div`
+const Warpper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+`;
+
+const Main = styled.div`
+    display: flex;
+    flex: 1;
 `;
 
 export default function Layout({ children }) {
     return (
-        <>
+        <Warpper>
             <Head>
                 <title>GachiTrip</title>
             </Head>
 
             <Header />
 
-            <main className="main" css={{
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "#fff",
-                height: "100%",
-                paddingLeft: "150px",
-                paddingRight: "150px"
-            }}>
+            <Main>
                 {children}
-            </main>
+            </Main>
             <Footer />
-        </>
+        </Warpper>
     )
 }

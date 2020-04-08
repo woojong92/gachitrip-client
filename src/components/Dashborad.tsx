@@ -6,8 +6,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const DashBoard = styled.div`
-    width: 100%;
-    min-height: 860px;
+    flex: 1;
 `;
 
 const DashBoardWrapper = styled.div`
