@@ -35,7 +35,7 @@ export default function Layout({ children }) {
             <Main>
                 {children}
             </Main>
-            <Footer />
+
         </Warpper>
     )
 }

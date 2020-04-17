@@ -1,14 +1,6 @@
-// import Layout from "../../components/Layout";
+import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 
-const Layout = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-    overflow: auto;
-`;
 
 const Header = styled.header`
     display: flex;
@@ -59,18 +51,7 @@ const Footer = styled.footer`
 export default function () {
     return (
         <Layout>
-            <Header>
-                <HeaderItem>로고 </HeaderItem>
-                <HeaderItem>서치바</HeaderItem>
-                <HeaderLeft><HeaderItem>로그인</HeaderItem></HeaderLeft>
-            </Header>
 
-            <Content>
-                <Aside></Aside>
-                <Main></Main>
-            </Content>
-
-            <Footer>ggg</Footer>
         </Layout>
     )
 }

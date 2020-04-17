@@ -54,6 +54,7 @@ const style = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   /* &:focus {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   } */

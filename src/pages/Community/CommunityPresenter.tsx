@@ -3,26 +3,63 @@ import { jsx, css } from "@emotion/core";
 import { useState } from "react"
 import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
-
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import ItemsCarousel from 'react-items-carousel';
+import Router from 'next/router'
+import CommunityHeader from "../../components/community/CommunityHeader";
+import ListItem from "../../components/community/ListItem";
+import { media } from '../../lib/style-utils';
 
-
-const FollwingContent = styled.div`
-    width: 300px;
-    height: 400px;
-    background-color: green;
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: #fafafa;
 `;
 
 
+const MainWrapper = styled.div`
+    width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+`;
 
-const ItemCarousel = styled.div`
- height: 100px;
- background-color: #EEE; 
- border-radius: 15px;
- display: flex;
- justify-content: center;
- align-items: center;
- cursor: pointer; 
+const ItemsWrapper = styled.div`
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px 0; */
+    /* background-color: red; */
+`;
+
+const ItemTitle = styled.div`
+    /* width: 100%; */
+    font-size: 20px;
+    margin: 15px;
+    text-align: left;
+`;
+
+const CarouselWrapper = styled.div`
+    width: 90%;
+    height: 100%;
+    margin: 20px auto;
+`;
+
+const CarouselItem = styled.div`
+    height:90%;
+    width: 90%;
+    background-color: #EEE; 
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
 `;
 
 const SearchContainer = styled.div`
@@ -75,85 +112,152 @@ const SeachButton = styled.button`
 
 
 export default function () {
-    const [activeItemIndex, setActiveItemIndex] = useState(0);
+    const [activeItemIndexA, setActiveItemIndexA] = useState(0);
+    const [activeItemIndexB, setActiveItemIndexB] = useState(0);
+    const [activeItemIndexC, setActiveItemIndexC] = useState(0);
     const chevronWidth = 40;
     const onClick = () => {
-        console.log('onclick');
+        console.log('gggg')
+        const tag = '유럽';
+        Router.push(
+            {
+                pathname: '/Community/CommunityTags',
+                query: { tags: tag },
+            }
+            // '/Community/[CommunityTags]'
+            , `/Community/#${tag}`
+        )
     }
+
+    const [selected, setSelected] = useState("국내")
     return (
         <Layout>
-            <SearchContainer>
-                어디 가고 싶나요? <SearchInput type="text" /><SeachButton>검색</SeachButton>
-            </SearchContainer>
+            <Wrapper>
+                <MainWrapper>
+                    <CommunityHeader />
 
-            <div style={{
-                padding: "0 40px",
-                maxWidth: "400px",
-                margin: "0 auto",
-            }}>
-                <ItemsCarousel
-                    infiniteLoop
-                    requestToChangeActive={setActiveItemIndex}
-                    activeItemIndex={activeItemIndex}
-                    numberOfCards={3}
-                    gutter={20}
-                    leftChevron={'<'}
-                    rightChevron={'>'}
-                    outsideChevron
-                    chevronWidth={60}
-                >
-                    <ItemCarousel onClick={onClick}>1 card</ItemCarousel>
-                    <ItemCarousel>2 card</ItemCarousel>
-                    <ItemCarousel>3 card</ItemCarousel>
-                    <ItemCarousel>4 card</ItemCarousel>
-                    <ItemCarousel>5 card</ItemCarousel>
-                </ItemsCarousel>
-            </div>
+                    <Box>
+                        <BoxItemList><BoxItem><Item>태그1</Item></BoxItem></BoxItemList>
+                        <BoxItemList><BoxItem><Item>태그2</Item></BoxItem></BoxItemList>
+                        <BoxItemList><BoxItem><Item>태그3</Item></BoxItem></BoxItemList>
+                        <BoxItemList><BoxItem><Item>태그4</Item></BoxItem></BoxItemList>
+                    </Box>
 
-            <div>나의 관심 게시판</div>
-
-            <div style={{
-                borderRadius: "15px",
-                height: "270px",
-                border: "1px solid #e5e5e5",
-                padding: "10px",
-            }}>
-                <ul style={{
-                    width: "300px",
-                    height: "100%",
-                }}>
-                    <li style={{
-                        width: "300px",
-                        display: "inline-flex",
-                        boxSizing: "border-box",
-                        maxWidth: "100%"
-                    }}>
-                        <div style={{
-                            display: "inline-flex",
-                            boxSizing: "border-box",
-                            backgroundColor: "white",
-                            whiteSpace: "nowrap",
-                            marginRight: "10px"
-                        }}> 국내여행 </div>
-                        <div style={{
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap"
-                        }}> 코로나 때문에 어디 나가질.sdfasfdsfdassdfasdfasdfdfasdfsdfsfㅁㄴ</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div>인기 게시판</div>
-
-
-
-            <div>최신글</div>
-            <br />
-            <div> 댓글 | 좋아요 | 글제목 </div>
-            <div>  1 | 30 | 이번 ........  </div>
-            <div> #유럽여행 #파리 #몽마르트언덕 </div>
-
+                    <ListItem onClick={onClick} />
+                    <ListItem onClick={onClick} />
+                </MainWrapper>
+            </Wrapper>
         </Layout >
     )
 }
+
+const Box = styled.div`
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 5px;
+`;
+
+const BoxItemList = styled.div`
+    flex-basis: 33.33%;
+    display: flex;
+    ${media.mobile`
+        flex-basis: 50%;
+    `}
+`;
+
+const BoxItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex: auto;
+    padding: 5px;
+`;
+
+const Item = styled.div`
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+`;
+
+
+
+// <ItemsWrapper>
+// <ItemTitle>인기 국내 게시판</ItemTitle>
+// <CarouselWrapper>
+//     <ItemsCarousel
+//         infiniteLoop
+//         requestToChangeActive={setActiveItemIndexA}
+//         activeItemIndex={activeItemIndexA}
+//         activePosition={"center"}
+//         numberOfCards={5}
+//         gutter={20}
+//         leftChevron={<LeftCircleButton />}
+//         rightChevron={<RightCircleButton />}
+//         // outsideChevron
+//         chevronWidth={40}
+//     >
+//         <CarouselItem onClick={() => (Router.push(`/?tag=gg`))}>#서울</CarouselItem>
+//         <CarouselItem>#제주</CarouselItem>
+//         <CarouselItem>#강릉</CarouselItem>
+//         <CarouselItem>#부산</CarouselItem>
+//         <CarouselItem>#경주</CarouselItem>
+//     </ItemsCarousel>
+// </CarouselWrapper>
+// </ItemsWrapper>
+
+// <ItemsWrapper>
+// <ItemTitle>인기 해외 게시판</ItemTitle>
+// <CarouselWrapper>
+//     <ItemsCarousel
+//         infiniteLoop
+//         requestToChangeActive={setActiveItemIndexB}
+//         activeItemIndex={activeItemIndexB}
+//         activePosition={"center"}
+//         numberOfCards={5}
+//         gutter={20}
+//         leftChevron={<LeftCircleButton />}
+//         rightChevron={<RightCircleButton />}
+//         // outsideChevron
+//         chevronWidth={40}
+//     >
+//         <CarouselItem onClick={onClick}>#파리</CarouselItem>
+//         <CarouselItem>#런던</CarouselItem>
+//         <CarouselItem>#세부</CarouselItem>
+//         <CarouselItem>#몽골</CarouselItem>
+//         <CarouselItem>#아이슬란드</CarouselItem>
+//     </ItemsCarousel>
+// </CarouselWrapper>
+// </ItemsWrapper>
+
+// <ItemsWrapper>
+// <ItemTitle>인기 레저 게시판</ItemTitle>
+// <CarouselWrapper>
+//     <ItemsCarousel
+//         infiniteLoop
+//         requestToChangeActive={setActiveItemIndexC}
+//         activeItemIndex={activeItemIndexC}
+//         activePosition={"center"}
+//         numberOfCards={5}
+//         gutter={20}
+//         leftChevron={<LeftCircleButton />}
+//         rightChevron={<RightCircleButton />}
+//         // outsideChevron
+//         chevronWidth={40}
+//     >
+//         <CarouselItem onClick={onClick}>#스쿠버다이빙</CarouselItem>
+//         <CarouselItem>#프리다이빙</CarouselItem>
+//         <CarouselItem>#서핑</CarouselItem>
+//         <CarouselItem>#스노우보드</CarouselItem>
+//         <CarouselItem>#패러글라이딩</CarouselItem>
+//     </ItemsCarousel>
+// </CarouselWrapper>
+// </ItemsWrapper>
