@@ -14,7 +14,7 @@
     "apollo-link-context": "^1.0.19",
     "emotion-theming": "^10.0.27",
     "graphql": "^14.6.0",
-    "next": "^9.3.4",
+    "next": "^11.1.0",
     "next-apollo": "^3.1.10",
     "react": "^16.13.1",
     "react-apollo": "^3.1.3",
